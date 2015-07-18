@@ -248,8 +248,11 @@ luaentity.register_entity("pipeworks:tubed_item", {
 			if not found_next then
 				drop_pos = minetest.find_node_near(vector.add(self.start_pos, velocity), 1, "air")
 				if drop_pos then 
-					minetest.item_drop(stack, "", drop_pos)
-					self:remove()
+--					minetest.item_drop(stack, "", drop_pos)
+--					self:remove()
+					
+			velocity = vector.multiply(velocity, -1)
+			self:setvelocity(velocity)
 					return
 				end
 			end
